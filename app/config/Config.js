@@ -1,0 +1,1 @@
+export const secret = "jenish-secret-key";

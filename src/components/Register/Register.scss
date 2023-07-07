@@ -1,0 +1,194 @@
+// Mixins animations 
+
+@mixin fade-in {
+    animation: fade-in 0.5s ease-in;
+}
+
+@mixin slide-up {
+    animation: slide-up 0.5s ease-out;
+}
+
+@mixin slide-down {
+    animation: slide-down 0.5s ease-out;
+}
+
+@mixin pulse($duration: 0.4s) {
+    animation: pulse $duration ease-in-out infinite;
+}
+
+@mixin slideFromTop {
+    animation: slideFromTop 0.5s ease-in-out forwards;
+}
+
+@mixin fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+// Keyframes animations
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        transform: translateY(100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+//login component styles
+
+.register-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 5rem;
+    background-color: #cd859d;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.register-page {
+    animation: fade-in 0.5s ease-in;
+}
+
+.pageTitle {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.label-text {
+    font-weight: 100;
+    margin-left: 2rem;
+}
+
+.register-input {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    padding: 0.5rem;
+    border-radius: 6px;
+    animation: slide-up 0.5s ease-out;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.register-input:focus {
+    outline: none;
+}
+
+.register-btn {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #2786ec;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    animation: slide-up 0.5s ease-out;
+}
+
+.register-btn:hover {
+    background-color: #0464ca;
+    @include pulse;
+}
+
+.reg-btn {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    margin-top: 0.6rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
+    text-decoration: none;
+    background-color: #c44678;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    animation: slide-up 0.5s ease-out;
+
+}
+
+.reg-btn:hover {
+    background-color: #9e0953;
+}
+
+
+// Responsive Design
+
+@media (max-width: 768px) {
+    .login-container {
+        max-width: 300px;
+    }
+
+    .login-input {
+        width: 100%;
+    }
+
+    .login-btn {
+        width: 100%;
+    }
+}

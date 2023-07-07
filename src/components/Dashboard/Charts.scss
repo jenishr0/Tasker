@@ -1,0 +1,46 @@
+$mobileBreakpoint: 767px;
+
+body {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+}
+
+#leftcolumn {
+    order: 1;
+    flex: 1;
+    margin-right: 4rem;
+}
+
+#rightcolumn {
+    order: 2;
+    flex: 1;
+    margin-right: 4rem;
+}
+
+#wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.8rem;
+}
+
+
+.wrap-header {
+    margin: 0;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+@media (max-width: $mobileBreakpoint) {
+    #wrapper {
+        flex-direction: column;
+    }
+
+    #leftcolumn,
+    #rightcolumn {
+        margin-right: 0;
+        margin-bottom: 20px;
+        order: initial;
+    }
+}

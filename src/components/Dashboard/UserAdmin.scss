@@ -1,0 +1,36 @@
+@mixin pulse($duration: 0.4s) {
+    animation: pulse $duration ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.create-task {
+    .createTask-btn {
+        background-color: #ce315d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: #d40e3f;
+            @include pulse;
+        }
+    }
+}

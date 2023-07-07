@@ -1,0 +1,87 @@
+$mobileBreakpoint: 767px;
+
+@mixin fadeIn($duration: 0.5s, $timing-function: ease) {
+    animation: fadeIn $duration $timing-function;
+}
+
+@mixin slideIn($duration: 0.5s, $timing-function: ease) {
+    animation: slideIn $duration $timing-function;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+.Task {
+    background-color: #f3eded;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    @include slideIn;
+    margin-bottom: 20px;
+}
+
+.Task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #9e0953;
+    padding: 10px;
+    margin: 3px;
+}
+
+#title {
+    font-weight: bold;
+    margin: 0;
+}
+
+.task-btn {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d2cdcd;
+    cursor: pointer;
+    font-size: 14px;
+    white-space: nowrap;
+
+    &:hover {
+        background-color: #f5f1f1f5;
+    }
+}
+
+.Task-body {
+    padding: 10px;
+
+    .Fields {
+        p {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media (max-width: $mobileBreakpoint) {
+    .Task-header {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .task-btn {
+            margin-top: 5px;
+        }
+    }
+}

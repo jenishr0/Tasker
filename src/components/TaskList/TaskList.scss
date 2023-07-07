@@ -1,0 +1,62 @@
+//Responsive design using mixins
+
+$mobileBreakpoint: 767px;
+
+//Mixins Animations
+
+@mixin fadeIn($duration: 0.5s, $timing-function: ease) {
+    animation: fadeIn $duration $timing-function;
+}
+
+@mixin slideIn($duration: 0.5s, $timing-function: ease) {
+    animation: slideIn $duration $timing-function;
+}
+
+//Keyframes animations
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+//TaskList component styles
+
+.Tasklist-text {
+    font-weight: bold;
+    margin: 0;
+    font-size: 28px;
+    text-align: center;
+    @include fadeIn;
+}
+
+
+.Tasklist-body {
+    margin-top: 1rem;
+    @include slideIn;
+}
+
+@media (max-width: $mobileBreakpoint) {
+    .Tasklist-text {
+        font-size: 18px;
+    }
+
+
+    .Tasklist-body {
+        margin-top: 10px;
+    }
+}

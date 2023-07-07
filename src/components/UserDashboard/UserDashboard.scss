@@ -1,0 +1,91 @@
+//Responsive design using Mixin
+
+$mobileBreakpoint: 767px;
+
+//Mixin animations
+
+@mixin fadeIn($duration: 0.5s, $timing-function: ease) {
+    animation: fadeIn $duration $timing-function;
+}
+
+@mixin slideIn($duration: 0.5s, $timing-function: ease) {
+    animation: slideIn $duration $timing-function;
+}
+
+//Keyframes animations
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+    }
+
+    to {
+        transform: translateY(0);
+    }
+}
+
+//UserDashboard component styles
+
+.UserDash {
+    .navbar {
+        ul {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li {
+                &.title {
+                    font-weight: bold;
+                    margin-right: auto;
+                    margin-left: 20px;
+                    @include fadeIn;
+                }
+
+                &.profile,
+                &.dashboard {
+                    margin-left: 20px;
+                    @include fadeIn;
+
+                    a {
+                        text-decoration: none;
+                        color: inherit;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: #007bff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: $mobileBreakpoint) {
+        .navbar {
+            ul {
+                flex-direction: column;
+
+                li {
+
+                    &.title,
+                    &.profile,
+                    &.dashboard {
+                        margin: 10px 0;
+                    }
+                }
+            }
+        }
+    }
+}
