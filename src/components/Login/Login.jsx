@@ -14,6 +14,8 @@ class Login extends React.Component {
         this.state = {
             loggedIn: false,
         };
+        this.handleLogin = this.handleLogin.bind(this);
+        this.LoginReq = this.LoginReq.bind(this);
     }
 
     LoginReq(state) {

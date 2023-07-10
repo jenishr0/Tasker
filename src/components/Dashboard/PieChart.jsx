@@ -69,12 +69,12 @@ function drawPie(data) {
         .scaleOrdinal()
         .domain(["Incomplete", "Completed", "Inprogress"])
         .range([
-            "#98abc5",
-            "#8a89a6",
-            "#7b6888",
-            "#6b486b",
-            "#a05d56",
-            "#d0743c",
+            "#B85F4C",
+            "#67B886",
+            "#5ABCC4",
+            "#4958A1",
+            "#614084",
+            "#995796",
             "#ff8c00",
         ]);
 

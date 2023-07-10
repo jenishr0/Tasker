@@ -77,6 +77,7 @@ class UserDashAdmin extends React.Component {
         request.post('/addtask', { 'email': email, 'task': newTask }).then((res) => {
             console.log(res);
             alert("Task created successfully!");
+            window.location.reload();
         }).catch((err) => {
             console.log(err);
             alert("Task not created!");
@@ -86,24 +87,26 @@ class UserDashAdmin extends React.Component {
     render() {
         return (
             <>
+
+                <div className="tasks">
+                    {this.state.tasks ? (
+                        <TaskList tasks={this.state.tasks} email={this.email} />
+                    ) : (
+                        <p>Getting Tasks...</p>
+                    )}
+                    <div className="create-task">
+                        <button className="createTask-btn" onClick={() => { this.createNewTask(this.email) }} >{"Create New Task"}</button>
+                    </div>
+                    <br />
+                    <hr />
+                </div>
+
                 <div className="charts">
                     {this.state.tasks ? (
                         <Charts tasks={this.state.tasks} />
                     ) : (
                         <p>Getting Charts...</p>
                     )}
-                </div>
-                <div className="tasks">
-                    <br />
-                    <hr />
-                    {this.state.tasks ? (
-                        <TaskList tasks={this.state.tasks} email={this.email} />
-                    ) : (
-                        <p>Getting Tasks...</p>
-                    )}
-                </div>
-                <div className="create-task">
-                    <button className="createTask-btn" onClick={() => { this.createNewTask(this.email) }} >{"Create New Task"}</button>
                 </div>
             </>
         );

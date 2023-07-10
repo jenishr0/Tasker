@@ -31,6 +31,7 @@ function RegisterReq() {
             .then((res) => {
                 console.log(res);
                 alert("Registered Successfully");
+                window.open("/login", "_self");
             }).catch((err) => {
                 console.log(err);
                 alert("Registration Failed");

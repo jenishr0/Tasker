@@ -32,7 +32,6 @@ function preprocess(tasks) {
     let completed = 0, inprogress = 0, overdue = 0, incomplete = 0;
 
     tasks.forEach(task => {
-        // compare task due date  with today's date
         if (Date(task.due) < Date.now() && task.status === "Incomplete") {
             overdue++;
         } else if (task.status === "Completed") {
@@ -68,7 +67,8 @@ function drawBar(data) {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    const color = d3.scaleOrdinal(d3.schemeCategory10);
+    const color = d3.scaleOrdinal()
+        .domain(["Completed", "Inprogress", "Overdue", "Incomplete"]).range(["#B85F4C", "#ff8c00", "#614084", "#5ABCC4", "#67B886", "#995796"]);
     x.domain(data.map((d) => d.letter));
     y.domain([0, d3.max(data, (d) => d.frequency)]);
 
